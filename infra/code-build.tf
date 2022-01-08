@@ -12,9 +12,8 @@ data "aws_iam_policy_document" "assume_by_codebuild" {
 }
 
 locals {
-#  github_token  = "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"
-  github_owner  = "umegrowcloud"
-  github_repo   = "demo-app-ecs"
+  github_owner  = "Ravindramandada"
+  github_repo   = "django-pipeline"
   github_branch = "main"
 }
 
