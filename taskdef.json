@@ -1,0 +1,35 @@
+{
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/<APP_NAME>_executionrole",
+  "containerDefinitions": [
+    {
+      "name": "<APP_NAME>",
+      "image": "<IMAGE_NAME>",
+      "essential": true,
+      "memoryReservation": 100,
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "protocol": "tcp",
+          "containerPort": 8000
+        }
+      ],
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "<SERVICE_PORT>"
+        },
+        {
+          "name": "APP_NAME",
+          "value": "<APP_NAME>"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "512",
+  "memory": "1024",
+  "family": "<APP_NAME>"
+}
