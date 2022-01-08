@@ -106,7 +106,31 @@ data "aws_iam_policy_document" "pipeline" {
     ]
     resources = ["*"]
   }
+  statement {
+    sid    = "CodeStarEC2",
+    effect = "Allow",
+    action = [
+      "codestar:*",
+      "ec2:DescribeKeyPairs",
+      "ec2:DescribeVpcs",
+      "ec2:DescribeSubnets",
+      "cloud9:DescribeEnvironment*",
+      "cloud9:ValidateEnvironmentName"
+    ]
+     resource = ["*"]
+  }
+  
+   statement {
+    sid    = "CodeStarCF"
+    effect = "Allow"
 
+    actions = [
+      "cloudformation:DescribeStack*",
+      "cloudformation:GetTemplateSummary"
+    ]
+    resources = ["*"]
+  }
+  
   statement {
     sid    = "AllowResources"
     effect = "Allow"
