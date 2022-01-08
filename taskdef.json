@@ -1,11 +1,16 @@
 {
-  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/<APP_NAME>_executionrole",
+  "executionRoleArn": "arn:aws:iam::870597747842:role/fargate-cluster-ECSTaskRole",
   "containerDefinitions": [
     {
-      "name": "<APP_NAME>",
-      "image": "<IMAGE_NAME>",
-      "essential": true,
-      "memoryReservation": 100,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "simpledjango-LogGroup",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "simpledjango-LogGroup-stream"
+        }
+      },
+      "entryPoint": null,
       "portMappings": [
         {
           "hostPort": 8000,
@@ -13,23 +18,83 @@
           "containerPort": 8000
         }
       ],
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 0,
       "environment": [
         {
-          "name": "PORT",
-          "value": "<SERVICE_PORT>"
-        },
-        {
-          "name": "APP_NAME",
-          "value": "<APP_NAME>"
+          "name": "WELCOME_MSG",
+          "value": "Hello Ravi Welcome"
         }
-      ]
+      ],
+
+      "image": "870597747842.dkr.ecr.us-east-1.amazonaws.com/django-app-initial:latest",
+      "name": "simpledjango-container"
     }
   ],
+  "placementConstraints": [],
+  "memory": "512",
+  "taskRoleArn": "arn:aws:iam::870597747842:role/fargate-cluster-ECSTaskRole",
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "family": "simpledjango",
+  "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "pidMode": null,
   "requiresCompatibilities": [
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "cpu": "512",
-  "memory": "1024",
-  "family": "<APP_NAME>"
+  "cpu": "256",
+  "status": "ACTIVE",
 }
