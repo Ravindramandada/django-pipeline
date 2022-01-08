@@ -109,7 +109,7 @@ data "aws_iam_policy_document" "pipeline" {
   statement {
     sid    = "CodeStarEC2"
     effect = "Allow"
-    action = [
+    actions = [
       "codestar:*",
       "ec2:DescribeKeyPairs",
       "ec2:DescribeVpcs",
@@ -117,7 +117,7 @@ data "aws_iam_policy_document" "pipeline" {
       "cloud9:DescribeEnvironment*",
       "cloud9:ValidateEnvironmentName"
     ]
-     resource = ["*"]
+     resources = ["*"]
   }
   
    statement {
