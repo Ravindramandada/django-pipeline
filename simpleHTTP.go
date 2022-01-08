@@ -16,7 +16,7 @@ func main() {
 
 // printing request headers/params
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome Message v1 = %s\n", os.Getenv("message"))
+	fmt.Fprintf(w, "Welcome Message demo class = %s\n", os.Getenv("message"))
 }
 
 func GetOutboundIP() net.IP {
