@@ -107,8 +107,8 @@ data "aws_iam_policy_document" "pipeline" {
     resources = ["*"]
   }
   statement {
-    sid    = "CodeStarEC2",
-    effect = "Allow",
+    sid    = "CodeStarEC2"
+    effect = "Allow"
     action = [
       "codestar:*",
       "ec2:DescribeKeyPairs",
