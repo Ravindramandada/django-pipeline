@@ -6,5 +6,5 @@ Resources:
       Properties:
         TaskDefinition: <TASK_DEFINITION>
         LoadBalancerInfo:
-          ContainerName: "simplehttp-container"
+          ContainerName: "simpledjango-container"
           ContainerPort: 8000
