@@ -28,7 +28,7 @@
         }
       ],
 
-      "image": "870597747842.dkr.ecr.us-east-1.amazonaws.com/django-app-initial:latest",
+      "image": "<IMAGE1_NAME>",
       "name": "simpledjango-container"
     }
   ],
