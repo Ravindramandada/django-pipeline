@@ -13,5 +13,5 @@ message                          = "Hello Ravi Welcome"
 cpu                              = 256
 repo_name                        = "simplehttp"
 env_name                         = "dev"
-termination_wait_time_in_minutes = 30
+termination_wait_time_in_minutes = 8
 deployment_config_name           = "CodeDeployDefault.ECSLinear10PercentEvery1Minutes"
